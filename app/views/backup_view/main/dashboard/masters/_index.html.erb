@@ -1,0 +1,30 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Master Conference <small>
+            <%= link_to new_main_dashboard_master_path, remote: true do %>
+                <button class="btn btn-default">Create New</button>
+            <% end %>
+        </small>
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-list fa-fw"></i> All Conference</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered" id="master-list"></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6" >
+        <div id="form-master" style:"display:none;"></div>
+    </div>
+    
+</div>
+<!-- /.row -->

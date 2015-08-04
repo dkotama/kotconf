@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil fa-fw"></i>Add/Edit Conference</h3>
+    </div>
+    <div class="panel-body">
+    <%= controller.action_name == 'new' ? action='create' : action='show' %>
+    <%= simple_form_for @master,url: {action: action}, remote: true do |f| %>
+      <%= f.input :url, label: 'URL' %>
+      <%= f.input :title, label: 'Title' %>
+      <%= f.button :submit %>
+    <% end %>
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title><%= @master_url.present? ? @master_url.title : nil %></title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <div class="container" style="padding-top:20px;">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-body"> 
+            <div class="left-panel-content" id="left-panel-content">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="row">
+          <%= render "welcomes/alert" %>
+        </div>
+        <div class="row">
+          <div class="list-group">
+            <% @masters.each do |master| %>
+              <%= link_to({action: "index",master_url: master.url, controller: "main/sites"}, class: "list-group-item") do %>
+                <h4 class="list-group-item-heading"><%= master.title %></h4>
+                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+              <% end %>
+           <% end %>
+           </div>
+       </div>
+      </div>
+    </div>
+  </div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </body>
+</html>

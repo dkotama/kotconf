@@ -1,0 +1,2 @@
+module Mein::IndexHelper
+end

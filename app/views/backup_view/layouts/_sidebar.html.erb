@@ -1,0 +1,29 @@
+ <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <%= link_to main_dashboard_root_path, remote: true do %>
+                            <i class="fa fa-fw fa-dashboard"></i> Dashboard
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to main_dashboard_masters_path, remote: true do %>
+                            <i class="fa fa-fw fa-globe"></i> Master Conference
+                        <% end %>
+                    </li>
+                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-book"></i> Site Manager <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <%= link_to 'Announcement',main_dashboard_web_managers_announcement_path, remote: true %>
+                            </li>
+                            <li>
+                                <%= link_to 'Primary Info',main_dashboard_web_managers_primary_path, remote: true%>
+                            </li>
+                            <li>
+                                <%= link_to 'Other Info',main_dashboard_web_managers_others_path, remote: true %>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>

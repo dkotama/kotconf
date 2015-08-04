@@ -1,0 +1,2 @@
+module Main::SitesHelper
+end

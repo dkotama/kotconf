@@ -1,0 +1,137 @@
+<!-- Full Width Image Header with Logo
+-->
+<!-- Image backgrounds are set within the full-width-pics.css file.
+-->
+<%= render(:partial => "layouts/navbar") %>
+<header class="carousel slide" data-ride="carousel" id="myCarousel">
+  <% # %ol.carousel-indicators %>
+  <% # 	%li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"} %>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <div class="fill" style="background-image:url('/assets/1900x1080.gif');">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1><%#= @master_content.headline_title.present? ? @master_content.headline_title : "Example headline." %></h1>
+            <p>
+            <%#= @master_content.headline_text.present? ? @master_content.headline_text : "This Conference is calling for paper until 2017"  %>
+            </p>
+            <p>
+              <a class="btn btn-lg btn-primary" href="#" role="button">Apply Now</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% # %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} %>
+  <% # 	%span.icon-prev %>
+  <% # %a.right.carousel-control{ "data-slide" => "next", :href => "#myCarousel"} %>
+  <% # 	%span.icon-next %>
+</header>
+<% #Container Start %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12"></div>
+    <h2 class="page-header">Announcement</h2>
+    <div class="col-lg-12">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td>12-04-2015</td>
+            <td>Announcement 1</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit <button type="button" class="btn btn-default btn-xs">See More</button></td>
+          </tr>
+          <tr>
+            <td>12-04-2015</td>
+            <td>Announcement 2</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit <button type="button" class="btn btn-default btn-xs">See More</button></td>
+          </tr>
+          <tr class="info">
+            <td>12-04-2015</td>
+            <td>Announcement 3</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehende  <button type="button" class="btn btn-default btn-xs">See More</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12"></div>
+    <h2 class="page-header">Backgrounds</h2>
+    <div class="col-md-6">
+      <p><%#= @master_content.bg_text.present? ? @master_content.bg_text : "Please fill the backgrounds of the Conference" %></p>
+    </div>
+    <div class="col-md-6">
+      <img class="img-responsive" data-brackets-id="154" src="/assets/700x300.gif"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12" data-brackets-id="140"></div>
+    <h2 class="page-header">Keynote Speakers</h2>
+    <div class="col-md-6">
+      <img class="img-responsive" data-brackets-id="154" src="/assets/700x300.gif"/>
+    </div>
+    <div class="col-md-6">
+      <p>The Modern Business template by Start Bootstrap includes:</p>
+      <ul>
+        <li>
+          <strong>Bootstrap v3.2.0</strong>
+        </li>
+        <li>jQuery v1.11.0</li>
+        <li>Font Awesome v4.1.0</li>
+        <li>Working PHP contact form with validation</li>
+        <li>Unstyled page elements for easy customization</li>
+        <li>17 HTML pages</li>
+      </ul>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"></h1>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            <i class="fa fa-fw fa-users"></i>
+            Scientific Commitee
+          </h4>
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+          <a class="btn btn-primary" href="#">See All Committee</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            <i class="fa fa-fw fa-check"></i>
+            Paper Regulations
+          </h4>
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+          <a class="btn btn-primary" href="#">See More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            <i class="fa fa-fw fa-cubes"></i>
+            Sub Themes
+          </h4>
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+          <a class="btn btn-primary" href="#">See Sub Themes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render(:partial => "layouts/footer") %>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title><%= @master_url.title %>&nbsp;<%= @currentPage %> </title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render(:partial=>'layouts/navmain') %>
+<div class="container-fluid">
+<div class="row">
+<%= render(:partial=>'layouts/sidebar') %>
+  <div class="col-md-9">
+    <div class="panel panel-default" style="min-height:600px;">
+      <div class="panel-heading"><b>Papers Proceedings</b></div>
+        <div class="row content" id="content" style="padding-left:10px;padding-top:20px;">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>

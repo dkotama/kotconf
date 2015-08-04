@@ -1,0 +1,14 @@
+id
+judul
+url
+
+background
+announcement
+speakers
+scientific committee
+paper regulations
+sub themes
+
+schedule
+pricing
+maps & contact

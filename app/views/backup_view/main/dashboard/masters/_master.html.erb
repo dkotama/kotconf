@@ -1,0 +1,15 @@
+<tr>
+  <td><%= master.id %></td>
+  <td><%= master.title %></td>
+  <td><%= master.url%></td>
+  <td>
+    <center>
+    <%= link_to :controller=>"masters",:action =>"edit",:id => master, remote: true do %>
+      <button class="btn btn-primary btn-xs">Edit</button>
+    <% end %>
+    <%= link_to main_dashboard_master_path(@master_url.url, master), remote: true, method: :delete, data: {confirm:  'Are you sure?'} do %>
+      <button class="btn btn-danger btn-xs">Delete</button>
+    <% end %>
+    </center>
+  </td>
+</tr>
