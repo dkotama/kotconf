@@ -1,21 +1,33 @@
-<%= render "notice" %>
 <%= simple_form_for @register, url: {action: 'create'} do |f| %>
   <div class="form-group">
     <legend><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Register</legend>
   </div>
   <div class="form-group">
-    <%= f.input :email, label: 'E-mail', class: "form-control" %>
+    <div class="col-md-6">
+      <%= f.input :first_name, label: 'First Name', class: "form-control", placeholder: "First Name is Required"  %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :last_name, label: 'Last Name', class: "form-control", placeholder: "Last Name is Required"   %>
+    </div>
   </div>
   <div class="form-group">
-    <%= f.input :password, label: 'Password', class: "form-control" %>
+    <%= f.input :email, label: 'E-mail', class: "form-control", placeholder: "Email is Required" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :country, priority: ["Indonesia"] %>
+  </div>
+  <div class="form-group">
+    <%= f.input :organization, label: 'Organization', class: "form-control", placeholder: "Your Current Workplace Name. Leave blank if private." %>
+  </div>
+  <div class="form-group">
+    <%= f.input :password, label: 'Password', class: "form-control", placeholder: "Please input 6 characters or more" %>
   </div>
   <div class="form-group">
     <%= f.input :password_confirmation, label: 'Re-Type Password', class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :submit, class: "btn btn-primary", :onclick => "return confirm('Are you sure form data is correct?')" %>
   </div>
-
   <div class="form-group">
     <small>Already have an account ?</small>&nbsp;
     <%= link_to "Login Now", welcomes_login_path, class: "btn btn-xs btn-primary" %>

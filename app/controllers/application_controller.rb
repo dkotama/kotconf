@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper ApplicationHelper
+
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end
@@ -16,7 +17,7 @@ class ApplicationController < ActionController::Base
     @master_url = Master.find_by_url(_temp)
     
     if !@master_url.present?
-      flash[:notice] = "Conference ' #{_temp} ' not found."
+      flash[:danger] = "Conference ' #{_temp} ' not found."
       redirect_to(root_path)   
     else
       return true

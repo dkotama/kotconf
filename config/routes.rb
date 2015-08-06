@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'welcomes/login'
   get 'welcomes/register'
   post 'welcomes/create'
@@ -20,5 +19,4 @@ Rails.application.routes.draw do
     get '/:action' => 'sites#:action'
   end
   root 'welcomes#index'
-  
 end
