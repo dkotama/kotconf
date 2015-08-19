@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421045813) do
+ActiveRecord::Schema.define(version: 20150808120920) do
 
   create_table "administrators", id: false, force: :cascade do |t|
     t.integer  "master_id",  limit: 4
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20150421045813) do
     t.string   "bg_text",          limit: 255
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "user_registers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_tokens", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "token",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

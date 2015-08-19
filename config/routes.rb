@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'welcomes/login'
   get 'welcomes/register'
-  post 'welcomes/create'
+
+  post 'users/create'
+  get 'users/register'
+  get 'users/index'
 
   namespace :main, path: ':master_url' do
     root 'sites#index'
@@ -18,5 +21,6 @@ Rails.application.routes.draw do
     end
     get '/:action' => 'sites#:action'
   end
+
   root 'welcomes#index'
 end

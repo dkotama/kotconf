@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Dear, Mr / Mrs <%= @user.last_name %></h3>
+    <p>
+        We received your inquiry about account registration, if you does not feel you were sign-up for a conference account at our site, please kindly ignore this email. If yes, you can activate your account via :
+      <br>
+        THIS LINK
+      <br>
+        Or if link above broken you can use THIS PAGE to manually validates yourself,
+      and paste this code <b><%= @user.user_token.token %></b> into the validate form.
+        <br>
+        <br>Best Regards
+
+        <br>Conference Team
+    </p>
+  </body>
+</html>
