@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcomes/login'
-  get 'welcomes/register'
+  get 'welcomes/index'
 
   post 'users/create'
+  get 'users/login'
   get 'users/register'
   get 'users/index'
+  get 'users/verify/:id/token'
 
   namespace :main, path: ':master_url' do
     root 'sites#index'

@@ -1,40 +1,53 @@
 class UsersController < ApplicationController
+  layout 'user'
 
   def index
   end
 
   def register
-    @register = User.new
-    @sender   = 'self'
+    @register = UserRegister.new
   end
 
-  def login
-    
+  def login 
   end 
 
+  def verify
+    @user  = nil
+    @id    = params[:id]
+
+    if @id.present ?
+     @user  = nil
+    end
+    
+    @token = params[:token]
+
+    @verify = UserRegister.find()
+  end
+
+  def activate
+    
+  end
+
   def create
-    @register = User.new(register_params) 
-    sender    = params[:sender] 
+    @register = UserRegister.new(register_params) 
 
     if @register.valid? 
-      token = UserToken.create(:token => SecureRandom.urlsafe_base64(16));
-      @register.user_token = token
+      @register.token = SecureRandom.urlsafe_base64(16);
       @register.save  
+
+      RegistrationMailer.email_token(@register).deliver_now
 
       flash[:success] = "Thank you for your registration. Please check your email for validating account."
       redirect_to(root_path)
     else
       flash[:danger] = "Error occured while registering your account"
-
-      if sender == 'welcome'
-        redirect_to :index
-      end 
+      render('users/register')
     end   
   end
 
   private
     def register_params 
-      params.require(:user).permit(:first_name, :last_name, 
+      params.require(:user_register).permit(:first_name, :last_name, 
                                    :email, :country, :organization, 
                                    :password, :password_confirmation, :sender
                                   )

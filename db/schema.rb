@@ -49,15 +49,15 @@ ActiveRecord::Schema.define(version: 20150808120920) do
   end
 
   create_table "user_registers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_tokens", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "token",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.string   "first_name",      limit: 255
+    t.string   "last_name",       limit: 255
+    t.string   "organization",    limit: 255
+    t.string   "country",         limit: 255
+    t.string   "token",           limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|

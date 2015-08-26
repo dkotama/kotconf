@@ -1,0 +1,12 @@
+<%= form_tag({:action => "activate", method: "post"}, name: "formVerify") do %>
+  <div class="form-group">
+    <legend><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Verify Your Account</legend>
+  </div>
+  <div class="form-group">
+    <%= f.input :id, :as => 'hidden',  :input_html => {:value => @id}%>
+    <%= f.input :token, label: 'Token', class: "form-control", placeholder: "Paste Token Here" %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, class: "btn btn-primary"%>
+  </div>
+<% end %>
