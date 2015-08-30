@@ -23,7 +23,7 @@
         </div>
         <div class="row">
           <div class="list-group">
-            <% if @register.errors.messages != nil %>
+            <% if @register.present? && @register.errors.messages != nil %>
               <h4 class="list-group-item-heading">Lorem Ipsum</h4>
               <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
             <% end %>

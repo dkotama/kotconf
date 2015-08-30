@@ -1,9 +1,14 @@
 Dear, Mr / Mrs <%= @user.last_name %>
 
     We received your inquiry about account registration, if you does not remember you were registrating or do something at our site, please kindly ignore this email. If yes, you can activate your account via :
+    
+    <%= @activateUrl %>
 
-    Or if link above broken you can use <THIS PAGE> to manually validates yourself,
-and paste this code <%= @user.token %> into the validate form.
+    Or if link above broken you can use, this link:
+
+    <%= @verifyUrl %>
+
+     to manually validates yourself, and paste this code <%= @user.token %> into the validate form.
 
 
 

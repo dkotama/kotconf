@@ -1,12 +1,18 @@
-<%= form_tag({:action => "activate", method: "post"}, name: "formVerify") do %>
+<%= form_tag({:action => "activate", method: "post"}) do %>
   <div class="form-group">
     <legend><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Verify Your Account</legend>
   </div>
   <div class="form-group">
-    <%= f.input :id, :as => 'hidden',  :input_html => {:value => @id}%>
-    <%= f.input :token, label: 'Token', class: "form-control", placeholder: "Paste Token Here" %>
+    <%= text_field_tag :id, nil, class: "form-control", value: @id %>
+    <%#= f.input :id, :as => 'hidden',  :input_html => {:value => @id}%>
+    <%#= f.input :id, label: 'ID', class: "form-control", :input_html => {:value => @id} %>
+    <%#= f.input :token, label: 'Token', class: "form-control", placeholder: "Paste Token Here" %>
   </div>
   <div class="form-group">
-    <%= f.button :submit, class: "btn btn-primary"%>
+    <%= text_field_tag :token, nil, class: "form-control", value: @token, placeholder: "Paste Token Here" %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag('Activate Account', class: "btn btn-primary") %>
+    <%#= f.button :submit, class: "btn btn-primary"%>
   </div>
 <% end %>

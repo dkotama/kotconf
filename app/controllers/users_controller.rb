@@ -12,20 +12,46 @@ class UsersController < ApplicationController
   end 
 
   def verify
-    @user  = nil
-    @id    = params[:id]
-
-    if @id.present ?
-     @user  = nil
+    if !User.exists?(:id => params[:id])
+      @id    = params[:id]
+      @token = params[:token]
+    else
+      flash[:danger] = "Your account already validated"
+      redirect_to(root_path)
     end
-    
-    @token = params[:token]
-
-    @verify = UserRegister.find()
   end
 
   def activate
-    
+    if params[:id].present? && params[:token].present? 
+      id    = params[:id]
+      token = params[:token]
+
+      userNew = UserRegister.find(id)
+      user    = nil 
+
+      if User.exists?(:id => id) 
+        flash[:danger] = "Your account already validated"
+      elsif userNew.token == token 
+        user = User.new(
+              :id              => userNew.id,
+              :email           => userNew.email,
+              :password_digest => userNew.password_digest,
+              :first_name      => userNew.first_name,
+              :organization    => userNew.organization,
+              :country         => userNew.country
+             )
+
+        if user.save
+          flash[:success] = "Your account was activated, please login to access conferences"
+        else
+          flash[:danger] = "Something error occurred while we creating your account."
+        end
+      else
+        flash[:danger] = "Incorrect Token, please check your email"
+      end 
+    end
+
+    redirect_to(root_path);
   end
 
   def create
@@ -34,8 +60,9 @@ class UsersController < ApplicationController
     if @register.valid? 
       @register.token = SecureRandom.urlsafe_base64(16);
       @register.save  
+      url = request.host + ':' + request.port.to_s
 
-      RegistrationMailer.email_token(@register).deliver_now
+      RegistrationMailer.email_token(@register, url).deliver_now
 
       flash[:success] = "Thank you for your registration. Please check your email for validating account."
       redirect_to(root_path)
@@ -52,4 +79,5 @@ class UsersController < ApplicationController
                                    :password, :password_confirmation, :sender
                                   )
     end 
+
 end

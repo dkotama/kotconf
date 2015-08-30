@@ -5,7 +5,16 @@ Rails.application.routes.draw do
   get 'users/login'
   get 'users/register'
   get 'users/index'
-  get 'users/verify/:id/token'
+
+  get 'users/verify'            => 'welcomes#index'
+  get 'users/verify/:id'        => 'users#verify#:id'
+  get 'users/verify/:id/:token' => 'users#activate#:id#:token'
+
+  get 'users/activate'            => 'welcomes#index'
+  get 'users/activate/:id'        => 'welcomes#index'
+  get 'users/activate/:id/:token' => 'users#activate#:id#:token'
+  
+  post 'users/activate'
 
   namespace :main, path: ':master_url' do
     root 'sites#index'
